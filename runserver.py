@@ -1,3 +1,3 @@
-from intro_to_flask import app
+from creighton import app
 
 app.run(debug=True)

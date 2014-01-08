@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Hello World! </h1>
+<p>You can <a href="{{ url_for('createPost') }}">create notes</a>, delete notes and edit created notes.
+Thats all!</p>
+
+{% for note in notes %}
+<div class="sticky">
+<b> {{ note.title }} </b>
+<p>{{ note.author }}</p>
+<p>{{ note.description }}</p>
+<a href="{{ url_for('edit', note_id=note.id) }}">Edit, this!</a>
+<a href="{{ url_for('delete', note_id=note.id) }}">Delete, this!</a>
+<a href="{{ url_for('editPost', post_uid=post.id) }}">Edit, this!</a>
+<a href="{{ url_for('deletePost', post_uid=post.id) }}">Delete, this!</a>
+</div>
+{% endfor %}
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="jumbo">
+    <h2>Welcome to the Flask app<h2>
+    <h3>This is the home page for the Flask app<h3>
+  </div>
+	<h3> notes should be here </h3>
+
+<!--   {% for note in notes %}
+<div class="sticky">
+<b> {{ note.title }} </b>
+<p>{{ note.author }}</p>
+<p>{{ note.description }}</p>
+<a href="{{ url_for('edit', note_id=note.id) }}">Edit, this!</a>
+<a href="{{ url_for('delete', note_id=note.id) }}">Delete, this!</a>
+</div>
+{% endfor %} -->
+{% for post in posts %}
+<div class="sticky">
+<b> {{ post.posttitle }} </b>
+<p>{{ post.price }}</p>
+<p>{{ post.email }}</p>
+<p>{{ post.description }}</p>
+<a href="{{ url_for('editPost', post_uid=post.uid) }}">Edit, this!</a>
+<a href="{{ url_for('deletePost', post_uid=post.uid) }}">Delete, this!</a>
+</div>
+{% endfor %}
+{% endblock %}

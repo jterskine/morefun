@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h2>Sell</h2>
+
+  {% if success %}
+    <p>Thank you for your message. We'll get back to you shortly.</p>
+  
+  {% else %} 
+    {% for message in form.title.errors %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+    
+    {% for message in form.email.errors %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+    
+    {% for message in form.price.errors %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+
+    
+    {% for message in form.description.errors %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+    
+    <form action="{{ url_for('sell') }}" method=post>
+      {{ form.hidden_tag() }}
+      
+      {{ form.title.label }}
+      {{ form.title }}
+
+      {{ form.isbn.label }}
+      {{ form.isbn }}
+
+      {{ form.email.label }}
+      {{ form.email }}
+
+      {{ form.price.label }}
+      {{ form.price }}
+
+      {{ form.description.label }}
+      {{ form.description }}
+      
+      {{ form.submit }}
+    </form>
+  
+  {% endif %}
+{% endblock %} 

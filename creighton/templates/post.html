@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	{% for message in get_flashed_messages() %}
+  <p class=flash>{{ message }}</p>
+  {% endfor %}
+<form action="" method=POST accept-charset="utf-8">
+
+<!--   <table> -->
+    <!-- {% for field in form %}
+
+     {{ form.hidden_tag() }} -->
+<!--     <tr>
+      <th>{{ field.label }}</th>
+      <td>{{ field }}</td>
+      {% if field.errors %}
+      <td>
+      <ul class=errors>
+        {% for error in field.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      </td>
+    </tr>
+    {% endfor %} -->
+<!--   </table> -->
+
+      {{ form.hidden_tag() }}
+      
+      {{ form.posttitle.label }}
+      {{ form.posttitle }}
+      
+      {{ form.price.label }}
+      {{ form.price }}
+      
+      {{ form.email.label }}
+      {{ form.email }}
+      
+      {{ form.description.label }}
+      {{ form.description }}
+      
+      {{ form.submit }}
+      <p><input type="submit" value="Save note"/></p>
+    </form>
+
+{% endblock content %}
